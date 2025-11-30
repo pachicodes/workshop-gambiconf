@@ -110,6 +110,44 @@ header p {
     padding-bottom: 40px;
 }
 
+/* Seção de estatísticas */
+.stats-section {
+    margin-bottom: 20px;
+}
+
+details#stats-details summary {
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.stats-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 8px 0 12px;
+}
+
+.chart-wrapper {
+    background-color: var(--card-bg);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+}
+
+.chart-wrapper { height: 260px; }
+
+/* Responsividade do canvas */
+.chart-wrapper canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
 .search-bar {
     margin-bottom: 20px;
 }
@@ -261,6 +299,45 @@ body.dark-mode .message-date {
     color: #8b949e;
 }
 
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.like-button:hover {
+    transform: scale(1.2);
+}
+
+.like-button svg {
+    width: 24px;
+    height: 24px;
+    stroke: #ff7b00;
+    stroke-width: 2;
+    fill: none;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.like-button.liked svg {
+    fill: #ff7b00;
+    stroke: #ff7b00;
+}
+
+.like-count {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+    min-width: 24px;
+    text-align: center;
+}
+
 .loading {
     grid-column: 1 / -1;
     text-align: center;
@@ -373,6 +450,141 @@ body.dark-mode .stat-snippet {
 .card-color-2 { border-top-color: #d2a8ff; }
 .card-color-3 { border-top-color: #79c0ff; }
 .card-color-4 { border-top-color: #ffa657; }
+
+/* Estilos para Gambiarra do Dia */
+.daily-gambiarra-section {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.daily-gambiarra-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.daily-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #ffa657, #ff7b00);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(255, 166, 87, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+.daily-gambiarra-card {
+    background: linear-gradient(135deg, #fff9f0, #fffef8);
+    border: 3px solid #ffa657;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(255, 166, 87, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.daily-gambiarra-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 166, 87, 0.05) 100%);
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.daily-gambiarra-card:hover {
+    transform: translateY(-8px) translateZ(0);
+    box-shadow: 0 12px 32px rgba(255, 166, 87, 0.25);
+    border-color: #ff7b00;
+}
+
+.daily-gambiarra-content {
+    font-family: 'Kalam', cursive;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.daily-gambiarra-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255, 166, 87, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.daily-gambiarra-author {
+    font-weight: 600;
+    color: #ff7b00;
+    font-size: 0.95rem;
+}
+
+.daily-gambiarra-date {
+    font-weight: 400;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* QR modal and QR button styles */
+.qr-button {
+    background: #ffffff;
+    color: var(--text-color);
+    border: 1px solid #e6e6e6;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.qr-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+.qr-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.qr-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); }
+.qr-dialog { position: relative; background: var(--card-bg); padding: 20px; border-radius: 10px; box-shadow: 0 12px 36px rgba(0,0,0,0.35); max-width: 420px; width: 90%; z-index: 1010; }
+.qr-close { position: absolute; top: 8px; right: 8px; background: transparent; border: none; font-size: 1.1rem; cursor: pointer; }
+.qr-body { display:flex; flex-direction: column; gap: 12px; align-items: center; }
+.qr-body img { width: 280px; height: 280px; max-width: 100%; border-radius: 6px; background: white; padding: 8px; }
+
+.sr-only { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
 
 /* ===== GIF Overlay ===== */
 .gif-overlay {
