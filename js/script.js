@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messagesContainer.innerHTML = ''; // Limpa o container (remove o loading)
 
         // Renderiza a Gambiarra do Dia (sempre que renderizar mensagens)
-        renderDailyGambiarra(messages);
+        renderDailyGambiarra(allMessages);
 
         // Inverte a ordem para mostrar os mais recentes primeiro (opcional, dependendo de como o JSON é mantido)
         // Vamos assumir que novos são adicionados no final do array, então invertemos para mostrar no topo
