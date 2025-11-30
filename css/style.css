@@ -221,7 +221,7 @@ footer {
 }
 
 .daily-gambiarra-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) translateZ(0);
     box-shadow: 0 12px 32px rgba(255, 166, 87, 0.25);
     border-color: #ff7b00;
 }
